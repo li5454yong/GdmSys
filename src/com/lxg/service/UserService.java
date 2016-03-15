@@ -15,4 +15,9 @@ public interface UserService {
 	public List<User> login(Object... objects);
 	
 	public void save(User user);
+	
+	public List<User> getList(Object... objects);
+	
+	public void updatePW(int id);
+	
 }

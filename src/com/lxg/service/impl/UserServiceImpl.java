@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.lxg.dao.UserDao;
 import com.lxg.entity.User;
 import com.lxg.service.UserService;
+import com.lxg.utils.MD5;
 
 /**
  * @author lxg
@@ -35,5 +36,26 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(User user) {
 		dao.save(user);
+	}
+
+	/**
+	 * 获取学生列表
+	 */
+	public List<User> getList(Object... objects) {
+		String hql = "from User where power=?";
+		try{
+			return dao.findEntity(hql, objects);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * 重置密码
+	 */
+	public void updatePW(int id) {
+		String passWd = MD5.MD5Encode("111111");
+		dao.updatePW(id, passWd);
 	}
 }

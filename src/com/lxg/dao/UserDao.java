@@ -15,4 +15,6 @@ public interface UserDao {
 	public List<User> findEntity(String hql, Object... objects);
 	
 	public void save(User user);
+	
+	public void updatePW(int id,String passWd);
 }

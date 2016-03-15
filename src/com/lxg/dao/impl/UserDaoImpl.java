@@ -35,4 +35,16 @@ public class UserDaoImpl implements UserDao {
 		sf.getCurrentSession().save(user);
 	}
 
+	/**
+	 * 重置密码
+	 */
+	public void updatePW(int id,String passWd) {
+		String sql = "update User set passwd=? where id=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		query.setString(0, passWd);
+		query.setInteger(1, id);
+		query.executeUpdate();
+		
+	}
+
 }
