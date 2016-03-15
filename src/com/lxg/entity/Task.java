@@ -12,7 +12,7 @@ public class Task {
 	
 	private int tid; //导师id
 	
-	private String tname; //导师姓名
+	private String tname; //任务名
 	
 	private Date stime; //开始时间
 	
