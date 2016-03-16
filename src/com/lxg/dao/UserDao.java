@@ -19,4 +19,8 @@ public interface UserDao {
 	public void updatePW(int id,String passWd);
 	
 	public void updateTeacher(int id, int tid, String tname);
+	
+	public List getSchedule(int id);
+	
+	public int getStuNum(int tid);
 }

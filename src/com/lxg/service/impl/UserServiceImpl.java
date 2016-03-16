@@ -63,4 +63,20 @@ public class UserServiceImpl implements UserService {
 		
 		dao.updateTeacher(id, tid, tname);
 	}
+
+	/**
+	 * 获取当前用户的任务进度
+	 */
+	public List getSchedule(int id) {
+		
+		return null;
+	}
+
+	/**
+	 * 获取某导师带领的学生人数
+	 */
+	public int getStuNum(int tid) {
+		
+		return dao.getStuNum(tid);
+	}
 }

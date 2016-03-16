@@ -63,4 +63,11 @@ public class UserController extends BasicController{
 		return "login";
 	}
 	
+	/**
+	 * 获取当前用户的进度
+	 */
+	@RequestMapping("getSchedule")
+	public void getSchedule(){
+		
+	}
 }

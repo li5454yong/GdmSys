@@ -58,4 +58,30 @@ public class UserDaoImpl implements UserDao {
 		query.executeUpdate();
 	}
 
+	public List getSchedule(int id) {
+		try{
+		String sql = "select * from task t LEFT JOIN stu_task s on u.id=t.tid";
+		Query query = sf.getCurrentSession().createSQLQuery(sql);
+		List list = query.list();
+		Object[] objs = (Object[]) list.get(0);
+	 	System.out.println(objs[0]);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 获取某导师带领的学生人数
+	 */
+	public int getStuNum(int tid) {
+		String sql = "select count(*) from User where tid=?";
+		Query query = sf.getCurrentSession().createSQLQuery(sql);
+		query.setParameter(0, tid);
+		
+		Object[] obj = (Object[]) query.list().get(0);
+		
+		return Integer.parseInt(obj[0].toString());
+	}
+
 }

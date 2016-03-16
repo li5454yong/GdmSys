@@ -5,15 +5,20 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+/**
+ * 通知消息
+ * @author lxg
+ *
+ * 2016年3月16日下午9:44:45
+ */
 @Entity
 public class Message {
 
 	private int id;
 	
-	private int tid;
+	private int tid; //导师id
 	
-	private String content;
+	private String content; //消息内容
 	
 	private Date init_date;
 
