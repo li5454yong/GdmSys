@@ -47,4 +47,15 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
+	public void updateTeacher(int id, int tid, String tname) {
+		String sql = "update User set tid=?,tname=? where id=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		
+		query.setParameter(0, tid);
+		query.setParameter(1, tname);
+		query.setParameter(2, id);
+		
+		query.executeUpdate();
+	}
+
 }

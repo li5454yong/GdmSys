@@ -18,7 +18,7 @@ public class Task {
 	
 	private Date etime; //结束时间
 	
-	private int status; //状态
+	private int status; //状态 0-未开始    1-进行中    2-已结束
 	
 	private int order_num; //序号
 

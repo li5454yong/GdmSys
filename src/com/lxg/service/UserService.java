@@ -20,4 +20,6 @@ public interface UserService {
 	
 	public void updatePW(int id);
 	
+	public void updateTeacher(int id,int tid,String tname);
+	
 }

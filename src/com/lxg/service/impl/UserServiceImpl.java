@@ -58,4 +58,9 @@ public class UserServiceImpl implements UserService {
 		String passWd = MD5.MD5Encode("111111");
 		dao.updatePW(id, passWd);
 	}
+
+	public void updateTeacher(int id, int tid, String tname) {
+		
+		dao.updateTeacher(id, tid, tname);
+	}
 }

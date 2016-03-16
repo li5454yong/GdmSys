@@ -17,4 +17,6 @@ public interface UserDao {
 	public void save(User user);
 	
 	public void updatePW(int id,String passWd);
+	
+	public void updateTeacher(int id, int tid, String tname);
 }
