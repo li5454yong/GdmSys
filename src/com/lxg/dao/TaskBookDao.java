@@ -13,4 +13,6 @@ public interface TaskBookDao {
 	public void save(TaskBook po);
 	
 	public void update(int id,int status);
+	
+	public TaskBook get(int sid);
 }

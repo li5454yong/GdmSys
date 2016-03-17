@@ -1,5 +1,7 @@
 package com.lxg.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -29,6 +31,18 @@ public class TaskBookDaoImpl implements TaskBookDao {
 		query.setParameter(1, id);
 		
 		query.executeUpdate();
+	}
+
+	public TaskBook get(int sid) {
+		String sql = "from TaskBook where sid=?";
+		
+		Query query = sf.getCurrentSession().createQuery(sql);
+		
+		query.setParameter(0, sid);
+		
+		List<TaskBook> list = query.list();
+		
+		return list.get(0);
 	}
 
 }
