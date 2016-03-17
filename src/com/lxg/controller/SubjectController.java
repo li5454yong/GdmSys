@@ -13,7 +13,12 @@ import com.lxg.entity.Subject;
 import com.lxg.entity.User;
 import com.lxg.service.SubjectService;
 import com.lxg.service.UserService;
-
+/**
+ * 课题
+ * @author 李新广
+ *
+ * 2016年3月17日下午1:33:28
+ */
 @Controller
 @RequestMapping("subject")
 public class SubjectController extends BasicController{
