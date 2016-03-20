@@ -17,4 +17,5 @@ public interface OpeningReportService {
 	public List<OpeningReport> get(int id);
 	
 	public void update(int id,String suggestion,int checkstatus);
+	
 }

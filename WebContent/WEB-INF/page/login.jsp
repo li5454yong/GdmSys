@@ -32,7 +32,7 @@
 
             <div class="m-t" role="form">
                 <div class="form-group">
-                    <input type="text" id="username" class="form-control" placeholder="学号" required="">
+                    <input type="text" id="username" class="form-control" placeholder="用户名" required="">
                 </div>
                 <div class="form-group">
                     <input type="password" id="password" class="form-control" placeholder="密码" required="">

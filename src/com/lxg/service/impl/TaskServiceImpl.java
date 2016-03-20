@@ -103,9 +103,15 @@ public class TaskServiceImpl implements TaskService {
 	 * 更新任务
 	 */
 	public void updateTask(Object... objects) {
-		String sql = "update Task set stime=?,etime=?,status=? where tid=?";
+		String sql = "update Task set stime=?,etime=?,status=? where id=?";
 		
 		dao.updateTask(sql, objects);
+	}
+
+	public Task getTask(Object... objects) {
+		String sql = "from Task where tid=? and tname=?";
+		
+		return dao.getTask(sql, objects);
 	}
 
 }

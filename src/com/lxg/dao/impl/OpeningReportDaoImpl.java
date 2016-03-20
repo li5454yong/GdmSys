@@ -23,13 +23,13 @@ public class OpeningReportDaoImpl implements OpeningReportDao {
 		sf.getCurrentSession().save(po);
 	}
 
-	public List<OpeningReport> get(int id) {
+	public List<OpeningReport> get(int sid) {
 		
-		String sql = "from OpeningReport where id = ?";
+		String sql = "from OpeningReport where sid = ?";
 		
 		Query query = sf.getCurrentSession().createQuery(sql);
 		
-		query.setParameter(0, id);
+		query.setParameter(0, sid);
 		
 		return query.list();
 		

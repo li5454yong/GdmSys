@@ -1,5 +1,6 @@
 package com.lxg.controller;
 
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.lxg.entity.Task;
 import com.lxg.entity.User;
 import com.lxg.service.TaskService;
@@ -48,25 +51,26 @@ public class TaskController extends BasicController{
 	 * @return
 	 */
 	@RequestMapping("getTaskList")
-	public String getTaskList(HttpServletRequest request,ModelMap map){
+	public void getTaskList(HttpServletRequest request,PrintWriter out){
 		
 		int tid = Integer.parseInt(request.getParameter("tid"));
 		
 		List<Task> list = service.getTaskList(tid);
 		
-		map.addAttribute("taskList", list);
-		return "";
+		String str = JSON.toJSONString(list);
+		out.print(str);
 	}
 	
 	
 	@RequestMapping("updateTask")
-	public String updateTask(HttpServletRequest request){
+	public @ResponseBody WebMessage updateTask(HttpServletRequest request){
 		User user = getAuthUser();
 		
-		Date stime = DateUtil.getDate(request.getParameter("stime"), "");
-		Date etime = DateUtil.getDate(request.getParameter("etime"), "");
+		int id = Integer.parseInt(request.getParameter("id"));
+		Date stime = DateUtil.getDate(request.getParameter("stime"), "yyyy-MM-DD hh:mm:ss");
+		Date etime = DateUtil.getDate(request.getParameter("etime"), "yyyy-MM-DD hh:mm:ss");
 		
-		service.updateTask(stime,etime,1,user.getId()); //将任务状态设为进行中
-		return "";
+		service.updateTask(stime,etime,1,id); //将任务状态设为进行中
+		return saveSuccess(0);
 	}
 }

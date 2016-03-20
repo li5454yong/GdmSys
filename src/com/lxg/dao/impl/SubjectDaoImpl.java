@@ -56,4 +56,27 @@ public class SubjectDaoImpl implements SubjectDao {
 		return query.list();
 	}
 
+	public Subject get(int id) {
+		String sql = "from Subject where id=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		query.setParameter(0, id);
+		
+		List<Subject> list = query.list();
+		
+		return list.get(0);
+	}
+
+	public void update(Subject subject) {
+		sf.getCurrentSession().saveOrUpdate(subject);
+	}
+
+	public Subject getByStu(int sid) {
+		String sql = "from Subject where sid=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		query.setParameter(0, sid);
+		
+		List<Subject> list = query.list();
+		return list.get(0);
+	}
+
 }

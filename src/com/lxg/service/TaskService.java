@@ -10,6 +10,8 @@ public interface TaskService {
 	
 	public List<Task> getTaskList(Object... objects);
 	
+	public Task getTask(Object... objects);
+	
 	public void updateTask(Object... objects);
 	
 }

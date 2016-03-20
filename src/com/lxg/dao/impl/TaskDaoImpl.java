@@ -53,4 +53,16 @@ public class TaskDaoImpl implements TaskDao {
 		query.executeUpdate();
 	}
 
+
+	@Override
+	public Task getTask(String sql, Object... objects) {
+		Query query = sf.getCurrentSession().createQuery(sql);
+		
+		for(int i=0; i<objects.length; i++){
+			query.setParameter(i, objects[i]);
+		}
+		List<Task> list = query.list();
+		return list.get(0);
+	}
+
 }

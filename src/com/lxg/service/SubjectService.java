@@ -14,4 +14,10 @@ public interface SubjectService {
 	public void save(Subject s);
 	
 	public void update(Object... objects);
+	
+	public void update(Subject subject);
+	
+	public Subject get(int id);
+	
+	public Subject getByStu(int sid);
 }

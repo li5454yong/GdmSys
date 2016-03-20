@@ -41,7 +41,7 @@ public class SubjectServiceImpl implements SubjectService {
 	 * 更新课题
 	 */
 	public void update(Object... objects) {
-		String sql = "update Subject set sid=?,sname=?,status=1 where id=?";
+		String sql = "update Subject set sid=?,sname=?,status=1,num=num-1 where id=?";
 		dao.update(sql, objects);
 		
 	}
@@ -52,6 +52,25 @@ public class SubjectServiceImpl implements SubjectService {
 	public List<Subject> getList() {
 		
 		return dao.getList();
+	}
+
+	/**
+	 * 获取单个课题
+	 */
+	public Subject get(int id) {
+		return dao.get(id);
+	}
+
+	/**
+	 * 修改
+	 */
+	public void update(Subject subject) {
+		dao.update(subject);
+		
+	}
+
+	public Subject getByStu(int sid) {
+		return dao.getByStu(sid);
 	}
 
 }

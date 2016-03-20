@@ -14,4 +14,10 @@ public interface SubjectDao {
 	public void save(Subject s);
 	
 	public void update(String sql,Object... objects);
+	
+	public Subject get(int id);
+	
+	public Subject getByStu(int sid);
+	
+	public void update(Subject subject);
 }

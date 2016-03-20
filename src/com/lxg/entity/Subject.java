@@ -1,5 +1,7 @@
 package com.lxg.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,17 +29,19 @@ public class Subject {
 	
 	private String  sname;//学生姓名
 	
-	private String desc;//课题简介
+	private String desc1;//课题简介
 	
 	private String expected_target;//预期目标
 	
 	private String demand;//能力要求
 	
-	private String condition; //所需条件
+	private String condition1; //所需条件
 	
 	private String literature; //参考条件
 	
 	private int status; //是否可选 0-可选    1-不可选
+	
+	private Date init_date;
 
 	@Id
 	@GeneratedValue
@@ -97,12 +101,13 @@ public class Subject {
 		this.sname = sname;
 	}
 
-	public String getDesc() {
-		return desc;
+
+	public String getDesc1() {
+		return desc1;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDesc1(String desc1) {
+		this.desc1 = desc1;
 	}
 
 	public String getExpected_target() {
@@ -121,12 +126,14 @@ public class Subject {
 		this.demand = demand;
 	}
 
-	public String getCondition() {
-		return condition;
+
+
+	public String getCondition1() {
+		return condition1;
 	}
 
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setCondition1(String condition1) {
+		this.condition1 = condition1;
 	}
 
 	public String getLiterature() {
@@ -143,6 +150,14 @@ public class Subject {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public Date getInit_date() {
+		return init_date;
+	}
+
+	public void setInit_date(Date init_date) {
+		this.init_date = init_date;
 	}
 	
 	

@@ -11,4 +11,6 @@ public interface TaskDao {
 	public List<Task> getTaskList(String sql,Object... objects);
 	
 	public void updateTask(String sql,Object... objects);
+	
+	public Task getTask(String sql,Object... objects);
 }

@@ -16,7 +16,6 @@
     <link href="${ctx }/css/font-awesome.css?v=4.3.0" rel="stylesheet">
     <link href="${ctx }/css/style.css?v=2.2.0" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx }/css/Huploadify.css"/>
-
 </head>
 
 <body>
@@ -26,122 +25,124 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
 
-                        <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        <div class="dropdown profile-element" style="text-align: center;" > <span>
+                            <c:if test="${user.pic != null}">
+                            	<c:if test="${user.pic != ''}">
+                            	<img alt="image"  height="100px" width="100px" class="img-circle" src="${user.pic }" />
+                            	</c:if>
+                            </c:if>
+                            
+                            
+                            <c:if test="${user.pic == null}">
+                            <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
+                            </c:if>
+                            <c:if test="${user.pic == ''}">
+                            <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
+                            </c:if>
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Beaut-zihan</strong>
-                             </span> <span class="text-muted text-xs block">超级管理员 <b class="caret"></b></span> </span>
+                            <br><br>
+                                <span class="text-muted text-xs block">${user.name } <b class="caret"></b></span> </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="#">修改头像</a>
+                                <li><a href="${ctx }/toUploadImg">修改头像</a>
                                 </li>
-                                <li><a href="#">个人资料</a>
+                                <li><a href="${ctx }/toUserInfo">修改密码</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li><a href="${ctx }/toLogin">安全退出</a>
                                 </li>
                             </ul>
                         </div>
 
                     </li>
-                    <li>
+                    <c:if test="${user.power == 0 }">
+                    	<li>
                         <a href="#"><i class="fa fa-th-large"></i> 
                         <span class="nav-label">学生管理</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="#">初始化学生信息</a>
+                            <li><a href="${ctx }/admin/toImport">初始化学生信息</a>
                             </li>
-                            <li><a href="#">重置密码</a>
+                            <li><a href="${ctx }/admin/toImport">初始化教师信息</a>
                             </li>
-                            <li><a href="#">主页示例三</a>
+                            <li><a href="${ctx }/admin/getStuList">学生列表</a>
                             </li>
-                            <li><a href="#">主页示例四</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-columns"></i> <span class="nav-label">布局</span><span class="label label-danger pull-right">2.0</span></a>
-                    </li>
-                    <li>
-                        <a href="index.html#"><i class="fa fa fa-globe"></i> <span class="nav-label">v2.0新增</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">Toastr通知</a>
-                            </li>
-                            <li><a href="#">嵌套列表</a>
-                            </li>
-                            <li><a href="#">时间轴</a>
-                            </li>
-                            <li><a href="#">论坛</a>
-                            </li>
-                            <li><a href="#">代码编辑器</a>
-                            </li>
-                            <li><a href="#">模态窗口</a>
-                            </li>
-                            <li><a href="#">表单验证</a>
-                            </li>
-                            <li><a href="#">树形视图</a>
-                            </li>
-                            <li><a href="#">聊天窗口</a>
+                            <li><a href="${ctx }/admin/getTeaList">教师列表</a>
                             </li>
                         </ul>
                     </li>
+                    </c:if>
+                    <c:if test="${user.power == 1 }">
                     <li>
-                        <a href="index.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">百度ECharts</a>
-                            </li>
-                            <li><a href="#">Flot</a>
-                            </li>
-                            <li><a href="#">Morris.js</a>
-                            </li>
-                            <li><a href="#">Rickshaw</a>
-                            </li>
-                            <li><a href="#">Peity</a>
-                            </li>
-                            <li><a href="#">Sparkline</a>
-                            </li>
-                        </ul>
+                        <a href="${ctx }/initTask">
+                        <i class="fa fa-columns"></i> 
+                        <span class="nav-label">初始化任务</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">收件箱</a>
-                            </li>
-                            <li><a href="#">查看邮件</a>
-                            </li>
-                            <li><a href="#">写信</a>
-                            </li>
-                        </ul>
+                        <a href="${ctx }/subject/getListForTeacher">
+                        <i class="fa fa-columns"></i> 
+                        <span class="nav-label">毕业设计课题</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="${ctx }/getTaskBook">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">任务书</span>
+                        </a>
+                    </li>
+                    </c:if>
+                    <c:if test="${user.power == 2 }">
+                    <li>
+                        <a href="${ctx }/subject/getListForStu">
+                        <i class="fa fa fa-globe"></i> 
+                        <span class="nav-label">选择课题</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">小工具</span></a>
+                        <a href="${ctx }/getTaskBookStu">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">任务书</span>
+                        </a>
                     </li>
-                    <li>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">基本表单</a>
-                            </li>
-                            <li><a href="#">表单验证</a>
-                            </li>
-                            <li><a href="#">高级插件</a>
-                            </li>
-                            <li><a href="#">步骤条</a>
-                            </li>
-                            <li><a href="#">百度WebUploader</a>
-                            </li>
-                            <li><a href="#">文件上传</a>
-                            </li>
-                            <li><a href="#">富文本编辑器</a>
-                            </li>
-                            <li><a href="#">simditor</a>
-                            </li>
-                            <li><a href="#">头像裁剪上传</a>
-                            </li>
-                            <li><a href="#">日期选择器layerDate</a>
-                            </li>
-                        </ul>
+                   </c:if>
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">开题报告</span>
+                        </a>
                     </li>
-                   
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">实习报告</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">毕业设计</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">毕业论文</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">工作日志</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="index.html#">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">答辩成绩</span>
+                        </a>
+                    </li>
+                    
                 </ul>
 
             </div>
@@ -157,7 +158,7 @@
                             	欢迎使用毕业设计过程管理系统</span>
                         </li>
                         <li>
-                            <a href="login.html">
+                            <a href="${ctx }/toLogin">
                                 <i class="fa fa-sign-out"></i> 退出
                             </a>
                         </li>
@@ -176,8 +177,11 @@
 
                     <hr>
                 </div>
-               <div id="upload"></div> 
                 
+                <div class="col-sm-12">
+                
+                </div>
+                <div id="upload"></div>
             </div>
             
         </div>
@@ -192,38 +196,9 @@
     <!-- Custom and plugin javascript -->
     <script src="${ctx }/js/hplus.js?v=2.2.0"></script>
     <script src="${ctx }/js/pace.min.js"></script>
-    
-	<script type="text/javascript" src="${ctx }/js/jquery.Huploadify.js"></script>
+     <script src="${ctx }/js/summernote/summernote.min.js"></script>
+    <script src="${ctx }/js/summernote/summernote-zh-CN.js"></script>
 
-<script type="text/javascript">
-$(function(){
-	$('#upload').Huploadify({
-		auto:false,
-		fileTypeExts:'*.jpg;*.png;*.exe;*.zip;*.rar;*.pdf',
-		multi:true,
-		formData:{pId:'${pId}'},
-		//fileSizeLimit:99999999,
-		showUploadedPercent:true,//是否实时显示上传的百分比，如20%
-		showUploadedSize:true,
-		removeTimeout:99999,
-		uploader:'upload',
-		onUploadStart:function(){
-			//alert('${pId}');
-			},
-		onInit:function(){
-			//alert('初始化');
-			},
-		onUploadComplete:function(file){
-			console.log(file);
-			//alert('上传完成');
-			},
-		onDelete:function(file){
-			console.log('删除的文件：'+file);
-			console.log(file);
-		}
-		});
-	});
-</script>
 </body>
 
 </html>

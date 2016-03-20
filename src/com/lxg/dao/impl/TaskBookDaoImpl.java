@@ -42,7 +42,12 @@ public class TaskBookDaoImpl implements TaskBookDao {
 		
 		List<TaskBook> list = query.list();
 		
-		return list.get(0);
+		if(list.size() == 0){
+			return null;
+		}else{
+			return list.get(0);
+		}
+		
 	}
 
 }

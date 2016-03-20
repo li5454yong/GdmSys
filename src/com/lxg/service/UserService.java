@@ -18,11 +18,13 @@ public interface UserService {
 	
 	public List<User> getList(Object... objects);
 	
-	public void updatePW(int id);
+	public void updatePW(int id,String pw);
 	
 	public void updateTeacher(int id,int tid,String tname);
 	
 	public List getSchedule(int id);
 	
 	public int getStuNum(int tid);
+	
+	public void updatePic(int id,String path);
 }

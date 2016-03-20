@@ -23,4 +23,6 @@ public interface UserDao {
 	public List getSchedule(int id);
 	
 	public int getStuNum(int tid);
+	
+	public void updatePic(int id, String path);
 }

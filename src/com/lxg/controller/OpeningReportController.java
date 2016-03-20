@@ -1,18 +1,22 @@
 package com.lxg.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lxg.entity.OpeningReport;
 import com.lxg.entity.StuTask;
+import com.lxg.entity.Subject;
 import com.lxg.entity.User;
 import com.lxg.service.OpeningReportService;
 import com.lxg.service.StuTaskService;
+import com.lxg.service.SubjectService;
 
 /**
  * 开题报告
@@ -29,6 +33,9 @@ public class OpeningReportController extends BasicController{
 	
 	@Resource
 	private StuTaskService sutTaskService;
+	
+	@Resource
+	private SubjectService subService;
 	
 	/**
 	 * 保存开题报告
@@ -67,5 +74,30 @@ public class OpeningReportController extends BasicController{
 		stuTask.setEdate(new Date());
 		
 		sutTaskService.save(stuTask);
+	}
+	
+	
+	public String getTaskBookStu(HttpServletRequest request,ModelMap map){
+		User user = getAuthUser();
+		if(user == null){
+			return redirect("../toLogin");
+		}
+		
+		request.setAttribute("page", "/WEB-INF/page/openingreport/openingreportForStu.jsp");
+		
+		List<OpeningReport> list = service.get(user.getId());
+		Subject subject = subService.getByStu(user.getId());
+		OpeningReport openingReport = null;
+		if(list.size() == 0){
+			openingReport = null;
+		}else{
+			openingReport = list.get(0);
+		}
+		
+		map.addAttribute("user", user);
+		map.addAttribute("subject", subject);
+		map.addAttribute("data", openingReport);
+		
+		return "user/index";
 	}
 }

@@ -54,8 +54,8 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 重置密码
 	 */
-	public void updatePW(int id) {
-		String passWd = MD5.MD5Encode("111111");
+	public void updatePW(int id,String pw) {
+		String passWd = MD5.MD5Encode(pw);
 		dao.updatePW(id, passWd);
 	}
 
@@ -78,5 +78,9 @@ public class UserServiceImpl implements UserService {
 	public int getStuNum(int tid) {
 		
 		return dao.getStuNum(tid);
+	}
+
+	public void updatePic(int id, String path) {
+		dao.updatePic(id, path);
 	}
 }

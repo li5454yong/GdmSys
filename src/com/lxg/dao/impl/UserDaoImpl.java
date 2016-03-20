@@ -84,4 +84,14 @@ public class UserDaoImpl implements UserDao {
 		return Integer.parseInt(obj[0].toString());
 	}
 
+	public void updatePic(int id, String path) {
+		String sql = "update User set pic=? where id=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		
+		query.setString(0, path);
+		query.setInteger(1, id);
+		query.executeUpdate();
+			
+	}
+
 }
