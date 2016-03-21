@@ -120,7 +120,7 @@
                    </c:if>
                      
                      <li>
-                        <a href="index.html#">
+                        <a href="${ctx }/getIrByStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">实习报告</span>
                         </a>

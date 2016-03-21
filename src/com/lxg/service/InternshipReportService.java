@@ -1,5 +1,7 @@
 package com.lxg.service;
 
+import java.util.List;
+
 import com.lxg.entity.InternshipReport;
 
 /**
@@ -11,4 +13,6 @@ import com.lxg.entity.InternshipReport;
 public interface InternshipReportService {
 	
 	public void save(InternshipReport po);
+	
+	public List<InternshipReport> get(int userId);
 }

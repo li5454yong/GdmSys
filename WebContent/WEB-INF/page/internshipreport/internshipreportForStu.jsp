@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
+ 
 </head>
 <body>
 <div id="wrapper">
@@ -23,22 +23,22 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">企业导师姓名</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="title" value="${subject.title }" class="form-control">
+                                    <input type="text" id="qyds" value="${data.qyds }" class="form-control">
                                 </div>
                                 <label class="col-sm-2 control-label">企业导师职务</label>
-                                <div class="col-sm-6">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                <div class="col-sm-2">
+                                    <input type="text" id="zw" value="${data.zw }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">企业导师学历</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="xl" value="${data.xl }" class="form-control">
                                 </div>
-                                <label class="col-sm-2 control-label">企业导师专业</label>
+                                <label class="col-sm-2 control-label">导师专业</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="dszy" value="${data.dszy }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -46,11 +46,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">电子邮箱</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="email" value="${data.email }" class="form-control">
                                 </div>
                                 <label class="col-sm-2 control-label">手机号码</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="phonenum" value="${data.phonenum }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -58,19 +58,31 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">单位邮箱</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="dwemail" value="${data.dwemail }" class="form-control">
                                 </div>
                                 <label class="col-sm-2 control-label">单位电话</label>
                                 <div class="col-sm-2">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="dwphone" value="${data.dwphone }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">单位省份</label>
+                                <div class="col-sm-2">
+                                    <input type="text" id="dwsf" value="${data.dwsf }" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">单位名称</label>
+                                <div class="col-sm-2">
+                                    <input type="text" id="dwmc" value="${data.dwmc }" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位地址</label>
                                 <div class="col-sm-6">
-                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                    <input type="text" id="dwdz" value="${data.dwdz }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -79,35 +91,35 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">实习内容</label>
                                 <div class="col-sm-6">
-                                    <textarea rows="5" cols="55" readonly="readonly">${subject.desc1 }</textarea>
+                                    <textarea rows="5" cols="55" id="sxnr">${data.sxnr }</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">实习总结</label>
                                 <div class="col-sm-10">
-                                    <textarea id="yjxz" rows="5" cols="55">${data.yjxz }</textarea>
+                                    <textarea id="sxzj" rows="5" cols="55">${data.sxzj }</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             
                             
-                            <div class="form-group">
+                          <%--   <div class="form-group">
                                 <label class="col-sm-2 control-label">发布日期</label>
                                 <div class="col-sm-10">
                                     <input placeholder="请输入日期" class="laydate-icon" id="init_date" value="${data.init_date }"
                                     onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
                                 </div>
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <div class="hr-line-dashed"></div> --%>
+                            <%-- <div class="form-group">
                                 <label class="col-sm-2 control-label">导师意见</label>
                                 <div class="col-sm-10">
                                     <textarea rows="5" cols="55" id="suggestion" readonly="readonly">${data.suggestion}</textarea>
                                 </div>
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <div class="hr-line-dashed"></div> --%>
+                            <%-- <div class="form-group">
 		                  	<label class="col-sm-2 control-label">审核状态</label>
 		                  	<div class="col-sm-6">
 		                	<select id="status" class="form-control m-b" disabled="disabled">
@@ -129,7 +141,7 @@
 		                        
 		                    </select>
 		                    </div>
-		                	</div>
+		                	</div> --%>
                             
                             <div class="text-center">
                             <a data-toggle="modal" class="btn btn-primary" 
@@ -148,22 +160,25 @@
 <script type="text/javascript">
 
 function add(){
-	var yjxz = $("#yjxz").val(); //研究现状
-	
-	var kxx = $("#kxx").val(); //可行性分析
-	
-	var jjsl = $("#jjsl").val(); //解决思路
-	
-	var hj = $("#hj").val(); //开发环境
-	
-	var schedule = $("#schedule").val(); //进度安排
-	
-	var init_date = $("#init_date").val(); //进表日期
+	var qyds = $("#qyds").val(); //企业导师
+	var zw = $("#zw").val(); //导师职务
+	var xl = $("#xl").val(); //学历
+	var dszy = $("#dszy").val(); //导师专业
+	var email = $("#email").val(); //导师邮箱
+	var phonenum = $("#phonenum").val(); //导师电话
+	var dwemail = $("#dwemail").val(); //企业邮箱
+	var dwphone = $("#dwphone").val();//单位电话
+	var dwsf = $("#dwsf").val();//单位省份
+	var dwmc = $("#dwmc").val(); //单位名称
+	var dwdz = $("#dwdz").val(); //单位地址
+	var sxnr = $("#sxnr").val();//实习内容
+	var sxzj = $("#sxzj").val(); //实习总结
 	
 	$.ajax({
-		url:'${ctx}/openingreport/save',
-		data:{'yjxz':yjxz,'kxx':kxx,
-			'jjsl':jjsl,'hj':hj,'schedule':schedule,'init_date':init_date},
+		url:'${ctx}/internshipReportSave',
+		data:{'qyds':qyds,'zw':zw,'dwdz':dwdz,'sxnr':sxnr,'sxzj':sxzj,
+			'xl':xl,'dszy':dszy,'email':email,'phonenum':phonenum,
+			'dwemail':dwemail,'dwphone':dwphone,'dwsf':dwsf,'dwmc':dwmc},
 		type:'POST',
 		success:function(data){
 			if(data.message == 0){

@@ -1,5 +1,7 @@
 package com.lxg.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -27,6 +29,14 @@ public class InternshipReportDaoImpl implements InternshipReportDao {
 		query.setParameter(1, id);
 		
 		query.executeUpdate();
+	}
+
+	public List<InternshipReport> get(int userId) {
+		String sql = "from InternshipReport where sid=?";
+		Query query = sf.getCurrentSession().createQuery(sql);
+		query.setParameter(0, userId);
+		
+		return query.list();
 	}
 	
 

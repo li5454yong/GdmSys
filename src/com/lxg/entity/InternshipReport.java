@@ -23,7 +23,7 @@ public class InternshipReport {
 	
 	private String xl; //学历
 	
-	private String dszy; //单位地址
+	private String dszy; //导师专业
 	
 	private String email; //导师邮箱
 	
