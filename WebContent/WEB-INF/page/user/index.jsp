@@ -86,8 +86,20 @@
                         <span class="nav-label">毕业设计课题</span>
                         </a>
                     </li>
+                     <li>
+                        <a href="${ctx }/getTaskBook">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">任务书</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ctx }/openingreport/getOpeningReportList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">开题报告</span>
+                        </a>
+                    </li>
                     </c:if>
-                    
+                    <c:if test="${user.power == 2 }">
                     <li>
                         <a href="${ctx }/subject/getListForStu">
                         <i class="fa fa fa-globe"></i> 
@@ -95,17 +107,18 @@
                         </a>
                     </li>
                     <li>
-                        <a href="index.html#">
+                        <a href="${ctx }/getTaskBookStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">任务书</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="index.html#">
+                    <li>
+                        <a href="${ctx }/openingreport/getOpeningReportStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">开题报告</span>
                         </a>
                     </li>
+                   </c:if>
                      <li>
                         <a href="index.html#">
                         <i class="fa fa-bar-chart-o"></i> 

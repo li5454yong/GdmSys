@@ -108,7 +108,7 @@ public class TaskBookController extends BasicController {
 	 * @param request
 	 */
 	@RequestMapping("saveTaskBook")
-	public void saveTaskBook(HttpServletRequest request){
+	public @ResponseBody WebMessage saveTaskBook(HttpServletRequest request){
 		User user = getAuthUser();
 		
 		String title = request.getParameter("title"); //任务名称
@@ -134,6 +134,7 @@ public class TaskBookController extends BasicController {
 		taskBook.setSid(user.getId());
 		
 		service.save(taskBook);
+		return saveSuccess(0);
 	}
 	
 	@RequestMapping("updateTaskBookStatus")

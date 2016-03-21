@@ -16,70 +16,81 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title" style="font-size: 15px;">
-							开题报告
+							实习报告
 						</div>
 						<div class="ibox-content">
 						 <form method="get" class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">课题名称</label>
-                                <div class="col-sm-6">
+                                <label class="col-sm-2 control-label">企业导师姓名</label>
+                                <div class="col-sm-2">
                                     <input type="text" readonly="readonly" id="title" value="${subject.title }" class="form-control">
                                 </div>
-                                
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">可选人数</label>
+                                <label class="col-sm-2 control-label">企业导师职务</label>
                                 <div class="col-sm-6">
                                     <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">课题简介</label>
+                                <label class="col-sm-2 control-label">企业导师学历</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">企业导师专业</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">电子邮箱</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">手机号码</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位邮箱</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">单位电话</label>
+                                <div class="col-sm-2">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位省份</label>
+                                <div class="col-sm-6">
+                                    <input type="text" readonly="readonly" id="" value="${subject.num }" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">实习内容</label>
                                 <div class="col-sm-6">
                                     <textarea rows="5" cols="55" readonly="readonly">${subject.desc1 }</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">本课题所涉及的问题在国内（外）的研究现状综述</label>
+                                <label class="col-sm-2 control-label">实习总结</label>
                                 <div class="col-sm-10">
                                     <textarea id="yjxz" rows="5" cols="55">${data.yjxz }</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">本人对课题任务书提出的任务要求及实现预期目标的可行性分析</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="55" id="kxx">${data.kxx }</textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
                             
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">本课题需要重点研究的、关键的问题及解决的思路</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="55" id="jjsl">${data.jjsl }</textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">完成本课题所必须的工作条件（如工具书、实验设备或实验环境条件、某类市场调研、计算机辅助设计条件等等）及解决的办法</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="55" id="hj">${data.hj }</textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">完成本课题的工作方案及进度计划</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="55" id="schedule">${data.schedule }</textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
                             
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">发布日期</label>

@@ -214,6 +214,25 @@
 </body>
    
 <script type="text/javascript">
+
+function edit(tid){
+	var start = $("#start").html();
+	var end = $("#end").html();
+	$.ajax({
+		url:'${ctx}/updateTask',
+		data:{'id':tid,'stime':start,'etime':end},
+		type:'POST',
+		success:function(data){
+			if(data.message == 0){
+				alert("成功");
+				window.location.reload();
+			}
+		}
+	});
+}
+
+
+
 /**
  * 修改审核状态
  */

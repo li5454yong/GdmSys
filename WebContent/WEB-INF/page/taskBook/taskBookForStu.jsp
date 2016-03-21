@@ -154,7 +154,10 @@ function add(){
 			'literature':literature,'eliterature':eliterature,'init_date':init_date},
 		type:'POST',
 		success:function(data){
-			
+			if(data.message == 0){
+				alert("填写成功");
+				window.location.reload();
+			}
 		}
 	});
 }

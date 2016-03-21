@@ -36,12 +36,14 @@ public class TaskController extends BasicController{
 	 * @param request
 	 */
 	@RequestMapping("initTask")
-	public void initTask(HttpServletRequest request){
+	public String initTask(HttpServletRequest request,ModelMap map){
 		
 		User user = getAuthUser();
 		
 		service.initTask(user.getId());
+		map.addAttribute("user", user);
 		
+		return "index";
 	}
 	
 	/**
