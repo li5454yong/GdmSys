@@ -97,6 +97,12 @@
                         <span class="nav-label">开题报告</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${ctx }/getInternshipReportList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">实习报告</span>
+                        </a>
+                    </li>
                     </c:if>
                     <c:if test="${user.power == 2 }">
                     <li>
@@ -117,14 +123,15 @@
                         <span class="nav-label">开题报告</span>
                         </a>
                     </li>
-                   </c:if>
-                     
-                     <li>
+                    <li>
                         <a href="${ctx }/getIrByStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">实习报告</span>
                         </a>
                     </li>
+                   </c:if>
+                     
+                     
                      <li>
                         <a href="index.html#">
                         <i class="fa fa-bar-chart-o"></i> 

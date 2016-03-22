@@ -16,7 +16,7 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title" style="font-size: 15px;">
-							开题报告
+							实习报告
 						</div>
 						<div class="ibox-content">
 						 <table class="table">
@@ -81,7 +81,7 @@
                                   <td>${item.num }</td>
                                   <td><fmt:formatDate value="${item.init_date }" pattern="yyyy-MM-dd HH:mm:ss"/>  </td>
                                   <td>
-                                  <a href="javascript:get(${item.sid });">查看开题报告</a>
+                                  <a href="javascript:get(${item.sid });">查看实习报告</a>
                                   </td>
                               </tr>
                             </c:forEach>
@@ -94,7 +94,7 @@
 			</div>
 		</div>
 	</div>
-<!-- 添加课题 弹出层  开始 -->
+<!-- 查看实习报告 弹出层  开始 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -104,83 +104,89 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">审核任务书</h4>
+						<h4 class="modal-title" id="myModalLabel">审核实习报告</h4>
 					</div>
 					<div class="modal-body">
 					<form class="form-horizontal">
-					<div class="form-group">
-					
-                                <label class="col-sm-2 control-label">课题名称</label>
+						<div class="form-group">
+                                <label class="col-sm-2 control-label">企业导师姓名</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="qyds" value="" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">企业导师职务</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="zw" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">企业导师学历</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="xl" value="" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">导师专业</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dszy" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">电子邮箱</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="email" value="" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">手机号码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="phonenum" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位邮箱</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dwemail" value="" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">单位电话</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dwphone" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位省份</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dwsf" value="" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">单位名称</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dwmc" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">单位地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="dwdz" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">实习内容</label>
                                 <div class="col-sm-6">
-                                    <input type="text" readonly="readonly" id="title" value="" class="form-control">
+                                    <textarea rows="5" cols="50" id="sxnr"></textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">可选人数</label>
-                                <div class="col-sm-6">
-                                    <input type="text" readonly="readonly" id="num" value="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">课题简介</label>
-                                <div class="col-sm-6">
-                                    <textarea rows="5" cols="50" id="desc" readonly="readonly"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">本课题所涉及的问题在国内（外）的研究现状综述</label>
+                                <label class="col-sm-2 control-label">实习总结</label>
                                 <div class="col-sm-10">
-                                    <textarea id="yjxz" rows="5" cols="50" id="yjxz"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">本人对课题任务书提出的任务要求及实现预期目标的可行性分析</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="50" id="kxx"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">本课题需要重点研究的、关键的问题及解决的思路</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="50" id="jjsl"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">完成本课题所必须的工作条件（如工具书、实验设备或实验环境条件、某类市场调研、计算机辅助设计条件等等）及解决的办法</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="50" id="hj"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">完成本课题的工作方案及进度计划</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="50" id="schedule"></textarea>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">发布日期</label>
-                                <div class="col-sm-10">
-                                    <input placeholder="请输入日期" class="laydate-icon" id="init_date" value="${data.init_date }"
-                                    onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">导师意见</label>
-                                <div class="col-sm-10">
-                                    <textarea rows="5" cols="50" id="suggestion"></textarea>
+                                    <textarea id="sxzj" rows="5" cols="50"></textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -194,12 +200,14 @@
 		                    </select>
 		                    </div>
 		                	</div>
-               		<input type="hidden" id="OpeningReportId" value="">
+               		<input type="hidden" id="ReportId" value="">
+               		<div class="modal-footer">
 					<div class="form-group">
                     <a style="float: right; margin-right: 80px;" data-toggle="modal" 
                      class="btn btn-primary"  href="javascript:update();">修改</a>
                     <a style="float: right; margin-right: 50px;" data-dismiss="modal"
                     class="btn btn-primary" href="#">取消</a>
+                    </div>
                     </div>
                     </form>
 			</div>
@@ -232,13 +240,11 @@ function edit(tid){
  * 修改审核状态
  */
 function update(){
-	var OpeningReportId = $("#OpeningReportId").val();
+	var ReportId = $("#ReportId").val();
 	var status = $("#status").val();
-	var suggestion = $("#suggestion").val();
-	alert(suggestion);
 	$.ajax({
-		url:'${ctx}/openingreport/updateOpeningReportStatus',
-		data:{'id':OpeningReportId,'status':status,'suggestion':suggestion},
+		url:'${ctx}/updateStatus',
+		data:{'id':ReportId,'status':status},
 		type:'POST',
 		success:function(data){
 			if(data.message == 0){
@@ -255,29 +261,30 @@ function update(){
 function get(sid){
 	
 	$.ajax({
-		url:'${ctx}/openingreport/getOpeningReportAjax',
+		url:'${ctx}/getIrByStuForAjax',
 		data:{'sid':sid},
 		type:'POST',
 		success:function(data){
-			var result = data.message.split("@LXG");
-			var openingReport = JSON.parse(result[0]);
-			var subject = JSON.parse(result[1]);
+			var result = data.message
+			var internshipReport = JSON.parse(result);
 			
-			$("#num").val(subject.num);
-			$("#desc").val(subject.desc1);
-			$("#title").val(subject.title); //任务名称
-			$("#yjxz").val(openingReport.yjxz); //研究现状
-			$("#kxx").val(openingReport.kxx); //可行性分析
-			$("#jjsl").val(openingReport.jjsl); //解决思路
-			$("#hj").val(openingReport.hj); //开发环境
-			$("#schedule").val(openingReport.schedule); //进度安排
+			$("#qyds").val(internshipReport.qyds); //企业导师
+			$("#zw").val(internshipReport.zw); //导师职务
+			$("#xl").val(internshipReport.xl); //学历
+			$("#dszy").val(internshipReport.dszy); //导师专业
+			$("#email").val(internshipReport.email); //导师邮箱
+			$("#phonenum").val(internshipReport.phonenum); //导师电话
+			$("#dwemail").val(internshipReport.dwemail); //企业邮箱
+			$("#dwphone").val(internshipReport.dwphone);//单位电话
+			$("#dwsf").val(internshipReport.dwsf);//单位省份
+			$("#dwmc").val(internshipReport.dwmc); //单位名称
+			$("#dwdz").val(internshipReport.dwdz); //单位地址
+			$("#sxnr").val(internshipReport.sxnr);//实习内容
+			$("#sxzj").val(internshipReport.sxzj); //实习总结
+			$("#ReportId").val(internshipReport.id);
 			
-			$("#OpeningReportId").val(openingReport.id);
+			$('#status  option[value='+internshipReport.status+']').attr("selected",true);
 			
-			$("#suggestion").val(openingReport.suggestion);
-			$("#init_date").val(fromatDate(new Date(openingReport.init_date))); //发布日期
-			$('#status  option[value='+openingReport.checkstatus+']').attr("selected",true);
-			//$("#taskBookId").val(book.id);
 			$("#myModal").modal('toggle');
 		}
 	});

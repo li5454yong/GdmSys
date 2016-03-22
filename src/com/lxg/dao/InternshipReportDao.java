@@ -11,4 +11,5 @@ public interface InternshipReportDao {
 	public void update(int status,int id);
 	
 	public List<InternshipReport> get(int userId);
+	
 }

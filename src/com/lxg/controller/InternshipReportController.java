@@ -10,11 +10,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.lxg.entity.InternshipReport;
 import com.lxg.entity.Subject;
+import com.lxg.entity.Task;
 import com.lxg.entity.User;
 import com.lxg.service.InternshipReportService;
 import com.lxg.service.SubjectService;
+import com.lxg.service.TaskService;
 
 /**
  * @author lxg
@@ -30,6 +33,8 @@ public class InternshipReportController extends BasicController{
 	@Resource
 	private InternshipReportService internshipReportService;
 	
+	@Resource
+	private TaskService taskBookService;
 	/**
 	 * 根据学生获取
 	 */
@@ -56,6 +61,67 @@ public class InternshipReportController extends BasicController{
 		return "user/index";
 	}
 	
+	
+	@RequestMapping("getIrByStuForAjax")
+	public @ResponseBody WebMessage get(HttpServletRequest request){
+		User user = getAuthUser();
+		//Subject subject = subService.getByStu(user.getId());
+		int id = Integer.parseInt(request.getParameter("sid"));
+		List<InternshipReport> list = internshipReportService.get(id);
+		InternshipReport internshipReport = null;
+		if(list.size() == 0){
+			internshipReport = null;
+		}else{
+			internshipReport = list.get(0);
+		}
+		
+		String str = JSON.toJSONString(internshipReport);
+		
+		return saveSuccess(str);
+	}
+	
+	
+	@RequestMapping("updateStatus")
+	public @ResponseBody WebMessage update(HttpServletRequest request){
+		int id = Integer.parseInt(request.getParameter("id"));
+		int status = Integer.parseInt(request.getParameter("status"));
+		
+		internshipReportService.update(status,id);
+		
+		return saveSuccess(0);
+	}
+	
+	/**
+	 * 导师获取开题报告列表
+	 * @param request
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("getInternshipReportList")
+	public String getInternshipReportList(HttpServletRequest request,ModelMap map){
+		User user = getAuthUser();
+		if(user == null){
+			return redirect("toLogin");
+		}
+		
+		Task  t = taskBookService.getTask(user.getId(),"实习报告");
+		
+		List<Subject> list = subService.getList(user.getId());
+		
+		request.setAttribute("page", "/WEB-INF/page/internshipreport/internshipReport.jsp");
+		
+		map.addAttribute("user", user);
+		map.addAttribute("task", t);
+		map.addAttribute("list", list);
+		return "user/index";
+	}
+	
+	
+	/**
+	 * 保存实习报告
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("internshipReportSave")
 	public @ResponseBody WebMessage save(HttpServletRequest request){
 		User user = getAuthUser();

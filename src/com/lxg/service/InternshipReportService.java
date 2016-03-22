@@ -15,4 +15,6 @@ public interface InternshipReportService {
 	public void save(InternshipReport po);
 	
 	public List<InternshipReport> get(int userId);
+	
+	public void update(int status,int id);
 }

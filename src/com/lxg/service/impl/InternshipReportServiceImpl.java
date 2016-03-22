@@ -25,4 +25,8 @@ public class InternshipReportServiceImpl implements InternshipReportService {
 		return dao.get(userId);
 	}
 
+	public void update(int status, int id) {
+		dao.update(status, id);
+	}
+
 }

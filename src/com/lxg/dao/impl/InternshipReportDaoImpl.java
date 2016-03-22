@@ -22,7 +22,7 @@ public class InternshipReportDaoImpl implements InternshipReportDao {
 	}
 
 	public void update(int status, int id) {
-		String sql = "udpate InternshipReport set status=? where id=?";
+		String sql = "update InternshipReport set status=? where id=?";
 		
 		Query query = sf.getCurrentSession().createQuery(sql);
 		query.setParameter(0, status);
