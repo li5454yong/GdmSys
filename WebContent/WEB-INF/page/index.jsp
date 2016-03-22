@@ -133,7 +133,7 @@
                      
                      
                      <li>
-                        <a href="index.html#">
+                        <a href="${ctx }/getGraduationProjectStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">毕业设计</span>
                         </a>
@@ -210,8 +210,6 @@
     <!-- Custom and plugin javascript -->
     <script src="${ctx }/js/hplus.js?v=2.2.0"></script>
     <script src="${ctx }/js/pace.min.js"></script>
-     <script src="${ctx }/js/summernote/summernote.min.js"></script>
-    <script src="${ctx }/js/summernote/summernote-zh-CN.js"></script>
 
 </body>
 

@@ -37,7 +37,7 @@
                             <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
                             </c:if>
                             <c:if test="${user.pic == ''}">
-                            <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
+                            <img alt="image" height="100px" width="1 00px" class="img-circle" src="${ctx }/img/user.png" />
                             </c:if>
                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
@@ -250,11 +250,12 @@
     <script src="${ctx }/js/hplus.js?v=2.2.0"></script>
     <script src="${ctx }/js/pace.min.js"></script>
     <script src="${ctx }/js/jquery.Huploadify.js"></script>
-    <script src="${ctx }/js/json2.js"></script>     
+    <script src="${ctx }/js/json2.js"></script>  
     <script type="text/javascript" src="${ctx }/js/laydate/laydate.js"></script>
 </div>
 </body>
 <script type="text/javascript">
+
 $(function(){
 	$('#uploadExle').Huploadify({
 		auto:false,
@@ -282,7 +283,9 @@ $(function(){
 		}
 		});
 
+	 
 });
+
 !function(){
 	laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
 	//laydate({elem: '#demo'});//绑定元素
