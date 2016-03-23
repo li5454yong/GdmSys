@@ -16,10 +16,10 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title" style="font-size: 15px;">
-							实习报告
+							毕业设计
 						</div>
 						<div class="ibox-content">
-						 <form method="get" class="form-horizontal">
+						 <form method="post" id="graduationProjectForm" enctype="multipart/form-data" class="form-horizontal" action="${ctx }/graduationProjectSave">
                            <div class="form-group">
                                 <label class="col-sm-2 control-label">课题名称</label>
                                 <div class="col-sm-6">
@@ -45,9 +45,50 @@
                             
                             <div class="form-group">
                             <label class="col-sm-2 control-label">有无毕业设计</label>
-                             <input type="radio" value="option1" name="a"> <i></i>有毕业设计</label>
-                           <input type="radio" checked="" value="option2" name="a"> <i></i>无毕业设计</label>
+                             <input type="radio" value="0" name="isHave"> <i></i>有毕业设计</label>
+                           <input type="radio"  value="1" name="isHave"> <i></i>无毕业设计</label>
                            </div>
+                           <c:if test="${data.dataPath == null }">
+                            <div class="form-group">
+                            <label class="col-sm-2 control-label">上传毕业设计</label>
+                             <input type="file" name="files"></label>
+                           </div>
+                           </c:if>
+                           <c:if test="${data.dataPath != null }">
+                            <div class="form-group">
+                            <label class="col-sm-2 control-label">上传毕业设计</label>
+                             <a href="${ctx }/GraduationProjectDownload?dataPath=${data.dataPath}&fileName=${data.fileName }">${data.fileName }</a>
+                           </div>
+                           </c:if>
+                           
+                           <div class="form-group">
+		                  	<label class="col-sm-2 control-label">审核状态</label>
+		                  	<div class="col-sm-6">
+		                	<select id="status" class="form-control m-b" disabled="disabled">
+		                        <c:if test="${data.status == 0 }">
+		                        	<option value="0" selected="selected">未审核</option>
+		                    		<option value="1">合格</option>
+		                    		<option value="2">不合格</option>
+		                        </c:if>
+		                        <c:if test="${data.status == 1 }">
+		                        	<option value="0" >未审核</option>
+		                    		<option value="1" selected="selected">合格</option>
+		                    		<option value="2">不合格</option>
+		                        </c:if>
+		                        <c:if test="${data.status == 2 }">
+		                        	<option value="0" >未审核</option>
+		                    		<option value="1">合格</option>
+		                    		<option value="2" selected="selected">不合格</option>
+		                        </c:if>
+		                        
+		                    </select>
+		                    </div>
+		                	</div>
+		                	
+                           <div class="text-center">
+                            <a data-toggle="modal" class="btn btn-primary" 
+                             href="javascript:add();">提交</a>
+                            </div>
                          </form>
 						</div>
 					</div>
@@ -60,38 +101,9 @@
    
 <script type="text/javascript">
 
-$(function(){
-	alert(1);
-});
 
 function add(){
-	var qyds = $("#qyds").val(); //企业导师
-	var zw = $("#zw").val(); //导师职务
-	var xl = $("#xl").val(); //学历
-	var dszy = $("#dszy").val(); //导师专业
-	var email = $("#email").val(); //导师邮箱
-	var phonenum = $("#phonenum").val(); //导师电话
-	var dwemail = $("#dwemail").val(); //企业邮箱
-	var dwphone = $("#dwphone").val();//单位电话
-	var dwsf = $("#dwsf").val();//单位省份
-	var dwmc = $("#dwmc").val(); //单位名称
-	var dwdz = $("#dwdz").val(); //单位地址
-	var sxnr = $("#sxnr").val();//实习内容
-	var sxzj = $("#sxzj").val(); //实习总结
-	
-	$.ajax({
-		url:'${ctx}/internshipReportSave',
-		data:{'qyds':qyds,'zw':zw,'dwdz':dwdz,'sxnr':sxnr,'sxzj':sxzj,
-			'xl':xl,'dszy':dszy,'email':email,'phonenum':phonenum,
-			'dwemail':dwemail,'dwphone':dwphone,'dwsf':dwsf,'dwmc':dwmc},
-		type:'POST',
-		success:function(data){
-			if(data.message == 0){
-				alert("成功");
-				window.location.reload();
-			}
-		}
-	});
+	$("#graduationProjectForm").submit();
 }
 </script>
 </html>

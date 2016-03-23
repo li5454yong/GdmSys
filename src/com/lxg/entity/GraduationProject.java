@@ -17,11 +17,17 @@ public class GraduationProject {
 
 	private int id;
 	
-	private int isHave;
+	private int sid;
+	
+	private int isHave; //是否有毕业设计  0-有  1-没有
 	
 	private String dataPath;
 	
 	private Date init_date;
+	
+	private String fileName;
+	
+	private int status;
 
 	@Id
 	@GeneratedValue
@@ -55,6 +61,30 @@ public class GraduationProject {
 
 	public void setInit_date(Date init_date) {
 		this.init_date = init_date;
+	}
+
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	

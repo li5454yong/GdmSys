@@ -33,6 +33,8 @@ public class Thesis {
 	
 	private String path; //上传文件的路径
 	
+	private String fileName;
+	
 	private Date init_date; //进表日期
 	
 	private String dsyj; //导师意见
@@ -125,6 +127,14 @@ public class Thesis {
 
 	public void setDsyj(String dsyj) {
 		this.dsyj = dsyj;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	
