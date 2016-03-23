@@ -109,6 +109,13 @@
                         <span class="nav-label">毕业设计</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${ctx }/ThesisList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">毕业论文</span>
+                        </a>
+                    </li>
+                    
                     </c:if>
                     <c:if test="${user.power == 2 }">
                     <li>
@@ -141,14 +148,15 @@
                         <span class="nav-label">毕业设计</span>
                         </a>
                     </li>
-                   </c:if>
-                     
-                     <li>
+                    <li>
                         <a href="${ctx }/getThesisByStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">毕业论文</span>
                         </a>
                     </li>
+                   </c:if>
+                     
+                     
                      <li>
                         <a href="index.html#">
                         <i class="fa fa-bar-chart-o"></i> 

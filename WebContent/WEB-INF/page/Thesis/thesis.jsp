@@ -16,7 +16,7 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title" style="font-size: 15px;">
-							实习报告
+							毕业论文
 						</div>
 						<div class="ibox-content">
 						 <table class="table">
@@ -81,7 +81,7 @@
                                   <td>${item.num }</td>
                                   <td><fmt:formatDate value="${item.init_date }" pattern="yyyy-MM-dd HH:mm:ss"/>  </td>
                                   <td>
-                                  <a href="javascript:get(${item.sid });">查看毕业设计</a>
+                                  <a href="javascript:get(${item.sid });">查看毕业论文</a>
                                   </td>
                               </tr>
                             </c:forEach>
@@ -94,7 +94,7 @@
 			</div>
 		</div>
 	</div>
-<!-- 查看毕业设计 弹出层  开始 -->
+<!-- 查看毕业论文 弹出层  开始 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -104,7 +104,7 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">审核实习报告</h4>
+						<h4 class="modal-title" id="myModalLabel">审核毕业论文</h4>
 					</div>
 					<div class="modal-body">
 					<form class="form-horizontal">
@@ -124,17 +124,59 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">中文题目</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="Thesis" name="title" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
                             
                             <div class="form-group">
-                            <label class="col-sm-2 control-label">有无毕业设计</label>
-                            <input type="radio" checked="checked" value="0" name="isHave"> <i></i>有毕业设计
-                           <input type="radio"  value="1" name="isHave"> <i></i>无毕业设计
-                           </div>
-                          
+                                <label class="col-sm-2 control-label">英文题目</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="etitle" name="etitle" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
                             <div class="form-group">
-                            <label class="col-sm-2 control-label">毕业设计</label>
-                             <a id="download" href=""></a>
+                                <label class="col-sm-2 control-label">中文关键字</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="gjz" name="gjz" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">英文关键字</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="egjz" name="egjz" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">中文摘要</label>
+                                <div class="col-sm-6">
+                                    <textarea rows="5" cols="50" name="zy" id="zy"></textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">英文摘要</label>
+                                <div class="col-sm-6">
+                                    <textarea rows="5" cols="50" name="ezy" id="ezy"></textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                            <label class="col-sm-2 control-label">上传论文</label>
+                             <a id="download" href="${ctx }/ThesisDownload?dataPath=${data.path}&fileName=${data.fileName }">${data.fileName }</a>
                            </div>
+                           <div class="hr-line-dashed"></div>
                           <div class="form-group">
 		                  	<label class="col-sm-2 control-label">审核状态</label>
 		                  	<div class="col-sm-6">
@@ -145,7 +187,7 @@
 		                    </select>
 		                    </div>
 		                	</div>
-               		<input type="hidden" id="projectId" value="">
+               		<input type="hidden" id="ThesisId" value="">
                		<div class="modal-footer">
 					<div class="form-group">
                     <a style="float: right; margin-right: 80px;" data-toggle="modal" 
@@ -185,11 +227,11 @@ function edit(tid){
  * 修改审核状态
  */
 function update(){
-	var ReportId = $("#projectId").val();
+	var ThesisId = $("#ThesisId").val();
 	var status = $("#status").val();
 	$.ajax({
-		url:'${ctx}/updateProjectStatus',
-		data:{'id':ReportId,'status':status},
+		url:'${ctx}/updateThesisStatus',
+		data:{'id':ThesisId,'status':status},
 		type:'POST',
 		success:function(data){
 			if(data.message == 0){
@@ -206,21 +248,31 @@ function update(){
 function get(sid){
 	
 	$.ajax({
-		url:'${ctx}/getGraduationProjectAjax',
+		url:'${ctx}/getThesisAjax',
 		data:{'sid':sid},
 		type:'POST',
 		success:function(data){
 			
 			var result = data.split("@LXG");
 			var subject = JSON.parse(result[0]);
-			var GraduationProject = JSON.parse(result[1]);
+			var Thesis = JSON.parse(result[1]);
 			
 			$("#title").val(subject.title);
 			$("#num").val(subject.num);
-			$("#download").html(GraduationProject.fileName);
-			$("#download").attr("href",'${ctx }/GraduationProjectDownload?dataPath='+GraduationProject.dataPath+'&fileName='+GraduationProject.fileName);
-			$("#projectId").val(GraduationProject.id);
-			$('#status  option[value='+GraduationProject.status+']').attr("selected",true);
+			$("#download").html(Thesis.fileName);
+			$("#download").attr("href",'${ctx }/ThesisDownload?dataPath='+Thesis.path+'&fileName='+Thesis.fileName);
+			
+			$("#Thesis").val(Thesis.title); //论文题目
+			$("#etitle").val(Thesis.etitle); //英文题目
+			$("#gjz").val(Thesis.gjz); //关键字
+			$("#egjz").val(Thesis.egjz); //英文关键字
+			$("#zy").val(Thesis.zy); //摘要
+			$("#ezy").val(Thesis.ezy); //英文摘要
+			
+			
+			
+			$("#ThesisId").val(Thesis.id);
+			$('#status  option[value='+Thesis.status+']').attr("selected",true);
 			$("#myModal").modal('toggle');
 		}
 	});

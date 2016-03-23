@@ -176,8 +176,12 @@ public class GraduationProjectController extends BasicController {
 	@RequestMapping("GraduationProjectDownload")
 	public void downLoad(HttpServletResponse response,HttpServletRequest request) throws IOException{
 		
+		 
+		 
 		String path = request.getParameter("dataPath");
 		String fileName = request.getParameter("fileName");
+		
+		path = new String(path.getBytes("ISO-8859-1"),"UTF-8");
 		
 		File file = new File(path);
 		

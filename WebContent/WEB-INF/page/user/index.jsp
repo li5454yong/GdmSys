@@ -37,7 +37,7 @@
                             <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
                             </c:if>
                             <c:if test="${user.pic == ''}">
-                            <img alt="image" height="100px" width="1 00px" class="img-circle" src="${ctx }/img/user.png" />
+                            <img alt="image" height="100px" width="100px" class="img-circle" src="${ctx }/img/user.png" />
                             </c:if>
                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">

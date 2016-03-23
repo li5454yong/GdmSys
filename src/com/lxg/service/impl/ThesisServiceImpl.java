@@ -27,4 +27,10 @@ public class ThesisServiceImpl implements ThesisService {
 		dao.save(po);
 	}
 
+
+	public void update(int status, int id) {
+		
+		dao.update(status, id);
+	}
+
 }

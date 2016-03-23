@@ -16,10 +16,10 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title" style="font-size: 15px;">
-							毕业论文
+							工作日志
 						</div>
 						<div class="ibox-content">
-						 <form method="post" id="ThesisSaveForm" enctype="multipart/form-data" class="form-horizontal" action="${ctx }/ThesisSave">
+						 <form method="post" id="ThesisSaveForm" enctype="multipart/form-data" class="form-horizontal">
                            <div class="form-group">
                                 <label class="col-sm-2 control-label">课题名称</label>
                                 <div class="col-sm-6">

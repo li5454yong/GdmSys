@@ -9,4 +9,6 @@ public interface ThesisDao {
 	public List<Thesis> getList(int sid);
 	
 	public void save(Thesis po);
+	
+	public void update(int status, int id);
 }

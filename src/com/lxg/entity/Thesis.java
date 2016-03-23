@@ -38,6 +38,8 @@ public class Thesis {
 	private Date init_date; //进表日期
 	
 	private String dsyj; //导师意见
+	
+	private int status;
 
 	@Id
 	@GeneratedValue
@@ -135,6 +137,14 @@ public class Thesis {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	

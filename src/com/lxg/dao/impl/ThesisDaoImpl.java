@@ -34,4 +34,16 @@ public class ThesisDaoImpl implements ThesisDao {
 		sf.getCurrentSession().save(po);
 	}
 
+	@Override
+	public void update(int status, int id) {
+		String sql = "update Thesis set status=? where id=?";
+		
+		Query query = sf.getCurrentSession().createQuery(sql);
+		
+		query.setInteger(0, status);
+		query.setInteger(1, id);
+		
+		query.executeUpdate();
+	}
+
 }
