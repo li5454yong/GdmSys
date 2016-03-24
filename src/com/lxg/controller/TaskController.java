@@ -69,8 +69,8 @@ public class TaskController extends BasicController{
 		User user = getAuthUser();
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		Date stime = DateUtil.getDate(request.getParameter("stime"), "yyyy-MM-DD hh:mm:ss");
-		Date etime = DateUtil.getDate(request.getParameter("etime"), "yyyy-MM-DD hh:mm:ss");
+		Date stime = DateUtil.getDate(request.getParameter("stime"), "yyyy-MM-dd hh:mm:ss");
+		Date etime = DateUtil.getDate(request.getParameter("etime"), "yyyy-MM-dd hh:mm:ss");
 		
 		service.updateTask(stime,etime,1,id); //将任务状态设为进行中
 		return saveSuccess(0);

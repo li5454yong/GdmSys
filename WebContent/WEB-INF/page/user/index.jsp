@@ -73,8 +73,8 @@
                         </ul>
                     </li>
                     </c:if>
-                    <c:if test="${user.power == 1 }">
-                     <li>
+                     <c:if test="${user.power == 1 }">
+                    <li>
                         <a href="${ctx }/initTask">
                         <i class="fa fa-columns"></i> 
                         <span class="nav-label">初始化任务</span>
@@ -98,6 +98,30 @@
                         <span class="nav-label">开题报告</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${ctx }/getInternshipReportList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">实习报告</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ctx }/getGraduationProjectList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">毕业设计</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ctx }/ThesisList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">毕业论文</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ctx }/dailyLogList">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <span class="nav-label">工作日志</span>
+                        </a>
+                    </li>
                     </c:if>
                     <c:if test="${user.power == 2 }">
                     <li>
@@ -118,76 +142,32 @@
                         <span class="nav-label">开题报告</span>
                         </a>
                     </li>
-                   </c:if>
-                     <li>
-                        <a href="index.html#">
+                    <li>
+                        <a href="${ctx }/getIrByStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">实习报告</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="index.html#">
+                    <li>
+                        <a href="${ctx }/getGraduationProjectStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">毕业设计</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="index.html#">
+                    <li>
+                        <a href="${ctx }/getThesisByStu">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">毕业论文</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="index.html#">
+                    <li>
+                        <a href="${ctx }/getDailyLogList">
                         <i class="fa fa-bar-chart-o"></i> 
                         <span class="nav-label">工作日志</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="index.html#">
-                        <i class="fa fa-bar-chart-o"></i> 
-                        <span class="nav-label">答辩成绩</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">收件箱</a>
-                            </li>
-                            <li><a href="#">查看邮件</a>
-                            </li>
-                            <li><a href="#">写信</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">小工具</span></a>
-                    </li>
-                    <li>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">基本表单</a>
-                            </li>
-                            <li><a href="#">表单验证</a>
-                            </li>
-                            <li><a href="#">高级插件</a>
-                            </li>
-                            <li><a href="#">步骤条</a>
-                            </li>
-                            <li><a href="#">百度WebUploader</a>
-                            </li>
-                            <li><a href="#">文件上传</a>
-                            </li>
-                            <li><a href="#">富文本编辑器</a>
-                            </li>
-                            <li><a href="#">simditor</a>
-                            </li>
-                            <li><a href="#">头像裁剪上传</a>
-                            </li>
-                            <li><a href="#">日期选择器layerDate</a>
-                            </li>
-                        </ul>
-                    </li>
+                   </c:if>
+                    
                    
                 </ul>
 

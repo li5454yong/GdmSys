@@ -119,7 +119,7 @@ public class TaskBookController extends BasicController {
 		String schedule = request.getParameter("schedule"); //进度安排
 		String literature = request.getParameter("literature"); //参考文献
 		String eliterature = request.getParameter("eliterature"); //英文参考文献
-		Date init_date = DateUtil.getDate(request.getParameter("init_date"), "yyyy-MM-DD hh:mm:ss");; //发布日期
+		Date init_date = DateUtil.getDate(request.getParameter("init_date"), "yyyy-MM-dd hh:mm:ss");; //发布日期
 		
 		TaskBook taskBook = new TaskBook();
 		
